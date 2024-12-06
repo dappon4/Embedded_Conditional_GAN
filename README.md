@@ -21,4 +21,4 @@ The video will be saved as `video.mp4` in the `videos` directory.
 ```bash
 python generate.py video.mp4
 ```
-<video controls src="resources/video.mp4" title="Title"></video>
+![alt text](https://github.com/dappon4/Embedded_Conditional_GAN/blob/main/resources/output.gif)
