@@ -134,3 +134,4 @@ cython_debug/
 
 runs
 lightning_logs
+videos/
