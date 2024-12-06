@@ -10,8 +10,9 @@ import matplotlib.pyplot as plt
 def tensor_to_video(tensor, file_name):
     os.makedirs("videos", exist_ok=True)
     
-    fig = plt.figure()
-    ax = plt.axes()
+    fig = plt.figure(frameon=False)
+    ax = plt.axes([0, 0, 1, 1], frameon=False)
+    ax.axis('off')
     img = ax.imshow(tensor[0].squeeze(), cmap='gray', vmin=0, vmax=1)
 
     def update(i):
@@ -64,9 +65,9 @@ class Generator(nn.Module):
         
         batch_size = steps
         
-        for i in range(9):
+        for i in range(10):
             z = z_original.clone()
-            diff = (embedded_labels[i+1] - embedded_labels[i]) / steps
+            diff = (embedded_labels[(i+1)%10] - embedded_labels[i]) / steps
             embedded_diff_steps = torch.Tensor.repeat(embedded_labels[i], steps, 1, 1) + torch.Tensor.repeat(diff, steps, 1, 1) * torch.arange(steps).reshape(steps, 1, 1)
             embedded_diff_steps = embedded_diff_steps.reshape(batch_size, 256, 4, 4)
             z = self.z_proj(z).reshape(batch_size, 256, 4, 4)
