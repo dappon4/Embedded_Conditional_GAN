@@ -21,4 +21,4 @@ The video will be saved as `video.mp4` in the `videos` directory.
 ```bash
 python generate.py video.mp4
 ```
-<video controls src="resources/video.mp4" title="<video controls src="videos/output.mp4" title="Title"></video>"></video>
+<video controls src="videos/output.mp4" title="Title"></video>
